@@ -7,12 +7,21 @@
 
     imageClick = function(e) {
         e.preventDefault();
-        drawOverlay();
-        drawWrapper();
+        drawOverlay($(e.currentTarget));
+        drawWrapper($(e.currentTarget));
     }
 
-    drawWrapper = function() {
+    drawWrapper = function(target) {
         var wrapper = $("<div></div>").addClass("eg-wrapper");
+
+        var img = $("<img />").attr('src', target.attr("href")).load(function() {
+            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            alert('broken image!');
+            } else {
+            $(".eg-wrapper").append(img);
+            }
+        });
+
         var closeBtn = $("<div></div>").addClass("eg-close");
         wrapper.append(closeBtn);
         $("body").append(wrapper);
@@ -27,7 +36,7 @@
         });
     }
 
-    drawOverlay = function() {
+    drawOverlay = function(target) {
         var overlay = $("<div></div>").addClass("eg-overlay");
         $("body").append(overlay);
 

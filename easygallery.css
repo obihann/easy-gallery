@@ -6,13 +6,16 @@
     left: 50%;
     margin-left: -25%;
     top: 50%;
-    margin-top: -25%;
+    margin-top: -20%;
 }
 
 .eg-close {
+    background-color: #FF6666;
     background-image: url(content/close.svg);
     background-repeat: no-repeat;
     background-size: cover;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
     position: absolute;
     cursor: pointer;
     top: 0px;
