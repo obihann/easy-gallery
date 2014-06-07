@@ -1,0 +1,32 @@
+.eg-wrapper {
+    position: absolute;
+    background-color: #333;
+    width: 800px;
+    height: 600px;
+    left: 50%;
+    margin-left: -25%;
+    top: 50%;
+    margin-top: -25%;
+}
+
+.eg-close {
+    background-image: url(content/close.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    cursor: pointer;
+    top: 0px;
+    right: 0px;
+    height: 60px;
+    width: 60px;
+}
+
+.eg-overlay {
+    position: absolute;
+    background-color: #FFF;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    opacity: 0.9;
+}
