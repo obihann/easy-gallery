@@ -1,0 +1,25 @@
+{
+  "name": "EasyGallery",
+  "version": "0.0.1",
+  "homepage": "https://github.com/obihann/EasyGallery",
+  "authors": [
+    "Jeff Hann <jeffhann@gmail.com>"
+  ],
+  "description": "An easy and customizable \"lightbox\" style gallery, for every developer sick of the mess of existing solutions.",
+  "main": "jquery.easygallery.js",
+  "keywords": [
+    "lightbox",
+    "ui",
+    "popup",
+    "jquery",
+    "window"
+  ],
+  "license": "GPL V2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
