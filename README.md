@@ -1,5 +1,4 @@
 #EasyGallery
----
 An easy and customizable "lightbox" style gallery, for every developer sick of the mess of existing solutions.
 
 
