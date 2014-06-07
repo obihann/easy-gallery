@@ -17,14 +17,23 @@
         wrapper.append(closeBtn);
         $("body").append(wrapper);
 
+        $(".eg-wrapper").click(function(e) {
+            e.stopPropagation();
+        });
+
         closeBtn.click(function(e) {
-            $(".eg-wrapper").hide();
-            $(".eg-overlay").hide();
+            $(".eg-wrapper").remove(); 
+            $(".eg-overlay").remove();
         });
     }
 
     drawOverlay = function() {
         var overlay = $("<div></div>").addClass("eg-overlay");
         $("body").append(overlay);
+
+        $(".eg-overlay").click(function(e) {
+            $(".eg-wrapper").remove();
+            $(".eg-overlay").remove();
+        });
     }
 }( jQuery ));
