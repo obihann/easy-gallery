@@ -7,21 +7,48 @@
     margin-left: -25%;
     top: 50%;
     margin-top: -20%;
+    padding: 20px;
 }
 
 .eg-close {
-    background-color: #FF6666;
+    background-color: #FF3333;
     background-image: url(content/close.svg);
+    background-size: 35px 35px;
     background-repeat: no-repeat;
-    background-size: cover;
-    -moz-border-radius: 30px;
-    border-radius: 30px;
+    background-position: center;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
     position: absolute;
     cursor: pointer;
-    top: 0px;
-    right: 0px;
-    height: 60px;
-    width: 60px;
+    top: -15px;
+    right: -15px;
+    height: 40px;
+    width: 40px;
+}
+
+.eg-back,
+.eg-forward {
+    background-color: #AAA;
+    background-size: 35px 35px;
+    background-repeat: no-repeat;
+    background-position: center;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.eg-forward {
+    background-image: url(content/right.svg);
+    right: -15px;
+}
+
+.eg-back {
+    background-image: url(content/left.svg);
+    left: -15px;
 }
 
 .eg-overlay {
