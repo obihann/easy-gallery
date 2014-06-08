@@ -6,6 +6,11 @@ An easy and customizable "lightbox" style gallery, for every developer sick of t
 * [Geomicons](https://www.iconfinder.com/iconsets/geomicons) - Icons
 * [{lorempixel}](http://lorempixel.com/) - Placeholder images
 
+##ToDo
+* Add keyboard support
+* Add ability to use custom icons and functions
+* add loading screen
+
 ##License
 This tool is protected by the [GNU General Public License v2](http://www.gnu.org/licenses/gpl-2.0.html).
 
