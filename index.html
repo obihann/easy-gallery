@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Easygallery by obihann</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Easygallery</h1>
+        <h2>An easy and customizable &quot;lightbox&quot; style gallery, for every developer sick of the mess of existing solutions. </h2>
+        <a href="https://github.com/obihann/EasyGallery" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Though currently very early in development we provide extra functionality such as the ability to add custom footer
+icons with callback functions, as well override (or extend) may of the core functions.
+Another handy feature we provide is every data-* attribute you attach to the  tag will be automatically added to the full size version on load.</p>
+
+<h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<p>Nice and simple</p>
+
+<pre><code>&lt;body&gt;
+    &lt;div class="carousel"&gt;
+        &lt;div class="thumb"&gt;
+            &lt;a href="images/1.jpeg" rel="carousel" data-uniq="a" data-color="green"&gt;&lt;img src="images/1.jpeg" /&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;div class="thumb"&gt;
+            &lt;a href="images/2.jpeg" rel="carousel" data-uniq="mouse" data-color="pink"&gt;&lt;img src="images/2.jpeg" /&gt;&lt;/a&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>One line... like every plugin :)</p>
+
+<pre><code>$(".carousel").EasyGallery();
+</code></pre>
+
+<h2>
+<a name="params" class="anchor" href="#params"><span class="octicon octicon-link"></span></a>Params</h2>
+
+<h3>
+<a name="footer-icons" class="anchor" href="#footer-icons"><span class="octicon octicon-link"></span></a>Footer Icons</h3>
+
+<p>Its super easy to add new icons with click handlers to the footer!</p>
+
+<pre><code>    var flag = {
+        icon: "/content/warning.svg",
+        click: function(e) {
+            alert("This image has been flagged");
+        }
+    };
+
+    var params = {
+        footer: [flag],
+    };
+
+    $(".carousel").EasyGallery(params);
+</code></pre>
+
+<h3>
+<a name="overriding-a-function" class="anchor" href="#overriding-a-function"><span class="octicon octicon-link"></span></a>Overriding a function</h3>
+
+<p>You dont like how I do X, then do it yourself! The following can be overridden:</p>
+
+<ul>
+<li>closeBtn</li>
+<li>previousClick</li>
+<li>nextClick</li>
+<li>imageClick</li>
+<li>
+</li>
+</ul><pre><code>    var params = {
+        closeBtn: function(e) {
+            console.log(123);
+        }
+    };
+
+    $(".carousel").EasyGallery(params);
+</code></pre>
+
+<h3>
+<a name="extending-a-function" class="anchor" href="#extending-a-function"><span class="octicon octicon-link"></span></a>Extending a function</h3>
+
+<p>Incase my functions are lacking, you can go crazy and extend them all you want and your code will be executed after mine.
+The following can be extended:</p>
+
+<ul>
+<li>closeBtnExt</li>
+<li>previousClickExt</li>
+<li>nextClickExt</li>
+<li>imageClickExt</li>
+<li>
+</li>
+</ul><pre><code>    var params = {
+        closeBtnExt: function(e) {
+            console.log(123);
+        }
+    };
+
+    $(".carousel").EasyGallery(params);
+</code></pre>
+
+<h2>
+<a name="todo" class="anchor" href="#todo"><span class="octicon octicon-link"></span></a>ToDo</h2>
+
+<ul>
+<li>Add keyboard support</li>
+</ul><h2>
+<a name="credits" class="anchor" href="#credits"><span class="octicon octicon-link"></span></a>Credits</h2>
+
+<ul>
+<li>
+<a href="https://www.iconfinder.com/iconsets/geomicons">Geomicons</a> - Icons</li>
+<li>
+<a href="http://lorempixel.com/">{lorempixel}</a> - Placeholder images</li>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This tool is protected by the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU General Public License v2</a>.</p>
+
+<p>Copyright <a href="http://jeffreyhann.ca/">Jeffrey Hann</a> 2014</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/obihann/EasyGallery/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/obihann/EasyGallery/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/obihann/EasyGallery"></a> is maintained by <a href="https://github.com/obihann">obihann</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
