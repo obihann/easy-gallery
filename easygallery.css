@@ -8,6 +8,18 @@
     top: 50%;
     margin-top: -20%;
     padding: 20px;
+    background-image: url(content/loading.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.eg-footer {
+    position: absolute;
+    bottom: -45px;
+    left: 0px;
+    right: 0px;
+    height: 40px;
+    text-align: center;
 }
 
 .eg-close {
@@ -26,29 +38,26 @@
     width: 40px;
 }
 
-.eg-back,
-.eg-forward {
+.eg-footer .eg-icon {
     background-color: #AAA;
     background-size: 35px 35px;
     background-repeat: no-repeat;
     background-position: center;
     -moz-border-radius: 40px;
     border-radius: 40px;
-    position: absolute;
-    top: 50%;
     width: 40px;
     height: 40px;
     cursor: pointer;
+    display: inline-block;
+    margin: 0px 10px;
 }
 
 .eg-forward {
     background-image: url(content/right.svg);
-    right: -15px;
 }
 
 .eg-back {
     background-image: url(content/left.svg);
-    left: -15px;
 }
 
 .eg-overlay {

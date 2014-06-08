@@ -1,9 +1,10 @@
 (function ($) {
-    var images, currentImage;
+    var images, currentImage, params;
 
-    $.fn.EasyGallery = function() {
+    $.fn.EasyGallery = function(_params) {
         images = this.find("a");
         images.click(imageClick);
+        params = _params;
     };
 
     imageClick = function(e) {
@@ -15,6 +16,7 @@
     drawWrapper = function(target) {
         currentImage = target;
         var wrapper = $("<div></div>").addClass("eg-wrapper");
+        var footer = $("<div></div>").addClass("eg-footer");
 
         var img = $("<img />").attr('src', target.attr("href")).load(function() {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
@@ -25,18 +27,30 @@
         });
 
         if (images.length > 1) {
-            var backArrow = $("<div></div>").addClass("eg-back");
-            var forwardArrow = $("<div></div>").addClass("eg-forward");
+            var backArrow = $("<div></div>").addClass("eg-back").addClass("eg-icon");
+            var forwardArrow = $("<div></div>").addClass("eg-forward").addClass("eg-icon");
 
-            wrapper.append(backArrow);
-            wrapper.append(forwardArrow);
+            footer.append(backArrow);
+            footer.append(forwardArrow);
 
             backArrow.click(previousImage);
             forwardArrow.click(nextImage);
         }
 
+        if (params.footer) {
+            var length = params.footer.length;
+            for (var x = 0; x < length; x++) {
+                var icon = $("<div></div>").addClass("eg-icon");
+                icon.css("background-image", "url("+params.footer[x].icon+")");
+
+                footer.append(icon);
+                icon.click(params.footer[x].click);
+            }
+        }
+
         var closeBtn = $("<div></div>").addClass("eg-close");
         wrapper.append(closeBtn);
+        wrapper.append(footer);
         $("body").append(wrapper);
 
         $(".eg-wrapper").click(function(e) {
@@ -77,10 +91,7 @@
             index = images.length - 1;
         }
 
-        console.log(images.length);
-
         currentImage = $(images[index]);
-        console.log(currentImage);
 
         var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
