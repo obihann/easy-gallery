@@ -3,14 +3,23 @@
 
     $.fn.EasyGallery = function(_params) {
         images = this.find("a");
-        images.click(imageClick);
         params = _params;
+
+        if (params.imageClick) {
+            images.click(params.imageClick);
+        } else {
+            images.click(imageClick);
+        }
     };
 
     imageClick = function(e) {
         e.preventDefault();
         drawOverlay($(e.currentTarget));
         drawWrapper($(e.currentTarget));
+
+        if (params.imageClickExt) {
+            params.imageClickExt(e);
+        }
     }
 
     drawWrapper = function(target) {
@@ -38,8 +47,17 @@
             footer.append(backArrow);
             footer.append(forwardArrow);
 
-            backArrow.click(previousImage);
-            forwardArrow.click(nextImage);
+            if (params.nextClick) {
+                forwardArrow.click(nextImage);
+            } else {
+                forwardArrow.click(nextImage);
+            }
+
+            if (params.previousClick) {
+                backArrow.click(previousClickImage);
+            } else {
+                backArrow.click(previousImage);
+            }
         }
 
         if (params.footer) {
@@ -62,10 +80,18 @@
             e.stopPropagation();
         });
 
-        closeBtn.click(function(e) {
-            $(".eg-wrapper").remove(); 
-            $(".eg-overlay").remove();
-        });
+        if (params.closeClick) {
+            closeBtn.click(params.closeClick);
+        } else {
+            closeBtn.click(function(e) {
+                $(".eg-wrapper").remove(); 
+                $(".eg-overlay").remove();
+
+                if (params.closeClickExt) {
+                    params.closeClickExt(e);
+                }
+            });
+        }
     }
 
     nextImage = function(e) {
@@ -86,6 +112,10 @@
                 $(".eg-wrapper").append(img);
             }
         });
+
+        if (params.nextClickExt) {
+            params.nextClickExt(e);
+        }
     }
 
     previousImage = function(e) {
@@ -106,6 +136,10 @@
                 $(".eg-wrapper").append(img);
             }
         });
+
+        if (params.previousClickExt) {
+            params.previousClickExt(e);
+        }
     }
 
     drawOverlay = function(target) {

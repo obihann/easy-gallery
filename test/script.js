@@ -7,7 +7,10 @@ $(function() {
     };
 
     var params = {
-        footer: [flag]
+        footer: [flag],
+        imageClickExt: function(e) {
+            alert("Custom");
+        }
     };
 
     $(".carousel").EasyGallery(params);
