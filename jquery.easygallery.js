@@ -22,6 +22,11 @@
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
                 alert('broken image!');
             } else {
+                attrs = currentImage.data();
+                for (prop in attrs) {
+                    img.attr(prop, attrs[prop]); 
+                }
+
                 $(".eg-wrapper").append(img);
             }
         });
