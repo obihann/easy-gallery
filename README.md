@@ -1,4 +1,4 @@
-data-#EasyGallery
+#EasyGallery
 An easy and customizable "lightbox" style gallery, for every developer sick of the mess of existing solutions. 
 Though currently very early in development we provide extra functionality such as the ability to add custom footer
 icons with callback functions, as well override (or extend) may of the core functions.
@@ -8,6 +8,21 @@ Another handy feature we provide is every data-\* attribute you attach to the <a
 ##Credits
 * [Geomicons](https://www.iconfinder.com/iconsets/geomicons) - Icons
 * [{lorempixel}](http://lorempixel.com/) - Placeholder images
+
+##Footer Icons
+Its super easy to add new icons with click handlers to the footer!
+```
+    var flag = {
+        icon: "/content/warning.svg",
+        click: function(e) {
+            alert("This image has been flagged");
+        }
+    };
+
+    var params = {
+        footer: [flag],
+    };
+```
 
 ##ToDo
 * Add keyboard support
