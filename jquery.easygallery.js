@@ -29,14 +29,15 @@
         currentImage = target;
         var wrapper = $("<div></div>").addClass("eg-wrapper");
         var footer = $("<div></div>").addClass("eg-footer");
+        var arrows = $("<div></div>").addClass("eg-arrows");
         loadCurrentImage();
 
         if (images.length > 1) {
             var backArrow = $("<div></div>").addClass("eg-back").addClass("eg-icon");
             var forwardArrow = $("<div></div>").addClass("eg-forward").addClass("eg-icon");
 
-            footer.append(backArrow);
-            footer.append(forwardArrow);
+            arrows.append(backArrow);
+            arrows.append(forwardArrow);
 
             if (params.nextClick) {
                 forwardArrow.click(nextImage);
@@ -65,6 +66,7 @@
         var closeBtn = $("<div></div>").addClass("eg-close");
         wrapper.append(closeBtn);
         wrapper.append(footer);
+        wrapper.append(arrows);
         $("body").append(wrapper);
 
         $(".eg-wrapper").click(function(e) {

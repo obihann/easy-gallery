@@ -60,6 +60,13 @@
     background-image: url(content/left.svg);
 }
 
+.eg-arrows {
+    top: 50%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+}
+
 .eg-overlay {
     position: absolute;
     background-color: #FFF;
