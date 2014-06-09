@@ -110,7 +110,7 @@
             } else {
                 attrs = currentImage.data();
                 for (var prop in attrs) {
-                    img.attr(prop, attrs[prop]);
+                    img.attr("data-" + prop, attrs[prop]);
                 }
 
                 $(".eg-wrapper img").remove();
