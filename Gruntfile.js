@@ -6,7 +6,6 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'jquery.easygallery.min.js': ['jquery.easygallery.js'],
-          'easygallery.min.css': ['easygallery.css']
         }
       }
     },
@@ -23,7 +22,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: ['easygallery.css', 'jquery.easygallery.js'],
+      files: ['jquery.easygallery.js'],
       tasks: ['jshint']
     }
   });

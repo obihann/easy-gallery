@@ -20,7 +20,7 @@
         if (params.imageClickExt) {
             params.imageClickExt(e);
         }
-    }
+    };
 
     drawWrapper = function(target) {
         currentImage = target;
@@ -28,11 +28,11 @@
         var footer = $("<div></div>").addClass("eg-footer");
 
         var img = $("<img />").attr('src', target.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
                 alert('broken image!');
             } else {
                 attrs = currentImage.data();
-                for (prop in attrs) {
+                for (var prop in attrs) {
                     img.attr(prop, attrs[prop]); 
                 }
 
@@ -92,7 +92,7 @@
                 }
             });
         }
-    }
+    };
 
     nextImage = function(e) {
         index = images.index(currentImage);
@@ -105,7 +105,7 @@
         currentImage = $(images[index]);
 
         var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
                 alert('broken image!');
             } else {
                 $(".eg-wrapper img").remove();
@@ -116,7 +116,7 @@
         if (params.nextClickExt) {
             params.nextClickExt(e);
         }
-    }
+    };
 
     previousImage = function(e) {
         index = images.index(currentImage);
@@ -129,7 +129,7 @@
         currentImage = $(images[index]);
 
         var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth == 0) {
+            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
                 alert('broken image!');
             } else {
                 $(".eg-wrapper img").remove();
@@ -140,7 +140,7 @@
         if (params.previousClickExt) {
             params.previousClickExt(e);
         }
-    }
+    };
 
     drawOverlay = function(target) {
         var overlay = $("<div></div>").addClass("eg-overlay");
@@ -150,5 +150,5 @@
             $(".eg-wrapper").remove();
             $(".eg-overlay").remove();
         });
-    }
+    };
 }( jQuery ));
