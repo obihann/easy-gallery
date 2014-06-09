@@ -23,7 +23,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['jquery.easygallery.js'],
-      tasks: ['jshint']
+      tasks: ['jshint', 'uglify']
     }
   });
 

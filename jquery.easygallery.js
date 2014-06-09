@@ -1,9 +1,12 @@
 (function ($) {
-    var images, currentImage, params;
+    var images, currentImage;
+    var params = {};
 
     $.fn.EasyGallery = function(_params) {
         images = this.find("a");
-        params = _params;
+        if (_params) {
+            params = _params;
+        }
 
         if (params.imageClick) {
             images.click(params.imageClick);
@@ -26,19 +29,7 @@
         currentImage = target;
         var wrapper = $("<div></div>").addClass("eg-wrapper");
         var footer = $("<div></div>").addClass("eg-footer");
-
-        var img = $("<img />").attr('src', target.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
-                alert('broken image!');
-            } else {
-                attrs = currentImage.data();
-                for (var prop in attrs) {
-                    img.attr(prop, attrs[prop]); 
-                }
-
-                $(".eg-wrapper").append(img);
-            }
-        });
+        loadCurrentImage();
 
         if (images.length > 1) {
             var backArrow = $("<div></div>").addClass("eg-back").addClass("eg-icon");
@@ -84,7 +75,7 @@
             closeBtn.click(params.closeClick);
         } else {
             closeBtn.click(function(e) {
-                $(".eg-wrapper").remove(); 
+                $(".eg-wrapper").remove();
                 $(".eg-overlay").remove();
 
                 if (params.closeClickExt) {
@@ -103,19 +94,28 @@
         }
 
         currentImage = $(images[index]);
-
-        var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
-                alert('broken image!');
-            } else {
-                $(".eg-wrapper img").remove();
-                $(".eg-wrapper").append(img);
-            }
-        });
+        loadCurrentImage();
 
         if (params.nextClickExt) {
             params.nextClickExt(e);
         }
+    };
+
+    loadCurrentImage = function() {
+        var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
+            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
+                alert('broken image!');
+            } else {
+                attrs = currentImage.data();
+                for (var prop in attrs) {
+                    img.attr(prop, attrs[prop]);
+                }
+
+                $(".eg-wrapper img").remove();
+                $(".eg-wrapper").css("width", this.width);
+                $(".eg-wrapper").append(img);
+            }
+        });
     };
 
     previousImage = function(e) {
@@ -127,15 +127,7 @@
         }
 
         currentImage = $(images[index]);
-
-        var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
-            if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
-                alert('broken image!');
-            } else {
-                $(".eg-wrapper img").remove();
-                $(".eg-wrapper").append(img);
-            }
-        });
+        loadCurrentImage();
 
         if (params.previousClickExt) {
             params.previousClickExt(e);

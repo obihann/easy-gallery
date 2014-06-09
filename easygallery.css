@@ -1,8 +1,8 @@
 .eg-wrapper {
     position: absolute;
     background-color: #333;
-    width: 800px;
-    height: 600px;
+    min-width: 320px;
+    min-height: 320px;
     left: 50%;
     margin-left: -25%;
     top: 50%;
