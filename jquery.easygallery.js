@@ -115,6 +115,7 @@
 
                 $(".eg-wrapper img").remove();
                 $(".eg-wrapper").css("width", this.width);
+                $(".eg-wrapper").css("height", this.height);
                 $(".eg-wrapper").append(img);
             }
         });
