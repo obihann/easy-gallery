@@ -17,12 +17,13 @@
 
     imageClick = function(e) {
         e.preventDefault();
+
+        if (currentImage) {
+            currentImage.removeClass("current");
+        }
+
         drawOverlay($(e.currentTarget));
         drawWrapper($(e.currentTarget));
-
-        if (params.imageClickExt) {
-            params.imageClickExt(e);
-        }
     };
 
     drawWrapper = function(target) {
@@ -30,7 +31,12 @@
         var wrapper = $("<div></div>").addClass("eg-wrapper");
         var footer = $("<div></div>").addClass("eg-footer");
         var arrows = $("<div></div>").addClass("eg-arrows");
-        loadCurrentImage();
+
+        if (params.imageClickExt) {
+            loadCurrentImage(params.imageClickExt);
+        } else {
+            loadCurrentImage();
+        }
 
         if (images.length > 1) {
             var backArrow = $("<div></div>").addClass("eg-back").addClass("eg-icon");
@@ -69,6 +75,10 @@
                 icon.addClass(footerIcon.class);
                 icon.attr("title", footerIcon.title);
 
+                if (params.footer[x].class) {
+                    icon.addClass(params.footer[x].class);
+                }
+
                 footer.append(icon);
                 icon.click(footerIcon.click);
             }
@@ -88,11 +98,15 @@
             closeBtn.click(params.closeClick);
         } else {
             closeBtn.click(function(e) {
+                if (currentImage) {
+                    currentImage.removeClass("current");
+                }
+
                 $(".eg-wrapper").remove();
                 $(".eg-overlay").remove();
 
                 if (params.closeClickExt) {
-                    params.closeClickExt(e);
+                    params.closeClickExt();
                 }
             });
         }
@@ -106,15 +120,21 @@
             index = 0;
         }
 
+        if (currentImage) {
+            currentImage.removeClass("current");
+        }
+
         currentImage = $(images[index]);
-        loadCurrentImage();
 
         if (params.nextClickExt) {
-            params.nextClickExt(e);
+            loadCurrentImage(params.nextClickExt());
+        } else {
+            loadCurrentImage();
         }
     };
 
-    loadCurrentImage = function() {
+    loadCurrentImage = function(_callback) {
+        currentImage.addClass("current");
         var img = $("<img />").attr('src', currentImage.attr("href")).load(function() {
             if (!this.complete || typeof this.naturalWidth == "undefined" || this.naturalWidth === 0) {
                 alert('broken image!');
@@ -126,7 +146,12 @@
 
                 $(".eg-wrapper img").remove();
                 $(".eg-wrapper").css("width", this.width);
+                $(".eg-wrapper").css("height", this.height);
                 $(".eg-wrapper").append(img);
+
+                if (_callback) {
+                    _callback();
+                }
             }
         });
     };
@@ -135,15 +160,20 @@
         index = images.index(currentImage);
         index--;
 
+        if (currentImage) {
+            currentImage.removeClass("current");
+        }
+
         if (index < 0) {
             index = images.length - 1;
         }
 
         currentImage = $(images[index]);
-        loadCurrentImage();
 
         if (params.previousClickExt) {
-            params.previousClickExt(e);
+            loadCurrentImage(params.previousClickExt);
+        } else {
+            loadCurrentImage();
         }
     };
 
@@ -152,6 +182,10 @@
         $("body").append(overlay);
 
         $(".eg-overlay").click(function(e) {
+            if (currentImage) {
+                currentImage.removeClass("current");
+            }
+
             $(".eg-wrapper").remove();
             $(".eg-overlay").remove();
         });
