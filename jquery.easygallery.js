@@ -54,12 +54,23 @@
 
         if (params.footer) {
             var length = params.footer.length;
+            var defaultParams = {
+                class: '',
+                title: '',
+                click: function (e) {
+                }
+            };
+
             for (var x = 0; x < length; x++) {
                 var icon = $("<div></div>").addClass("eg-icon");
-                icon.css("background-image", "url("+params.footer[x].icon+")");
+                var footerIcon = $.extend({}, defaultParams, params.footer[x]);
+
+                icon.css("background-image", "url("+footerIcon.icon+")");
+                icon.addClass(footerIcon.class);
+                icon.attr("title", footerIcon.title);
 
                 footer.append(icon);
-                icon.click(params.footer[x].click);
+                icon.click(footerIcon.click);
             }
         }
 
