@@ -3,14 +3,24 @@
     background-color: #333;
     min-width: 320px;
     min-height: 320px;
-    left: 50%;
-    margin-left: -25%;
-    top: 50%;
-    margin-top: -20%;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    margin-top:60px;
+    margin-left:auto;
+    margin-right: auto;
     padding: 20px;
     background-image: url(content/loading.gif);
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.eg-wrapper img{
+    width:100%;
+    height:100%;
 }
 
 .eg-footer {
@@ -70,6 +80,7 @@
 .eg-overlay {
     position: absolute;
     background-color: #FFF;
+    height:100%;
     left: 0px;
     right: 0px;
     top: 0px;
