@@ -18,6 +18,7 @@
     background-image: url(content/loading.gif);
     background-position: center;
     background-repeat: no-repeat;
+    z-index: 9999;
 }
 
 .eg-wrapper img{
@@ -88,4 +89,5 @@
     top: 0px;
     bottom: 0px;
     opacity: 0.9;
+    z-index: 9998;
 }
