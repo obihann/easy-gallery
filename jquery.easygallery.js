@@ -144,9 +144,27 @@
                     img.attr("data-" + prop, attrs[prop]);
                 }
 
+                var width = this.width;
+                var height = this.height;
+
+                if (height > $(window).height() || width > $(window).width()) {
+                    if ($(window).height() > $(window).width()) {
+                        width = $(window).width();
+                        height = $(window).width();
+                    } else {
+                        width = $(window).height();
+                        height = $(window).height();
+                    }
+
+                    height -= 60;
+                    /*
+                     *width -= 60;
+                     */
+                }
+
                 $(".eg-wrapper img").remove();
-                $(".eg-wrapper").css("width", this.width);
-                $(".eg-wrapper").css("height", this.height);
+                $(".eg-wrapper").css("width", width);
+                $(".eg-wrapper").css("height", height);
                 $(".eg-wrapper").append(img);
 
                 if (_callback) {

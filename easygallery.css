@@ -1,29 +1,25 @@
 .eg-wrapper {
-    position: absolute;
+    position: fixed;
     background-color: #333;
-    min-width: 320px;
-    min-height: 320px;
     max-width: 100%;
-    max-height: 100%;
-    width:100%;
-    height:100%;
-    top:0;
+    height: auto;
+    top:50%;
     left:0;
     bottom:0;
     right:0;
-    margin-top:60px;
+    margin-top:-26%;
     margin-left:auto;
     margin-right: auto;
     padding: 20px;
     background-image: url(content/loading.gif);
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 9999;
+    z-index: 10000;
 }
 
 .eg-wrapper img{
     width:100%;
-    height:100%;
+    height:auto;
 }
 
 .eg-footer {
@@ -81,7 +77,7 @@
 }
 
 .eg-overlay {
-    position: absolute;
+    position: fixed;
     background-color: #FFF;
     height:100%;
     left: 0px;
@@ -89,5 +85,5 @@
     top: 0px;
     bottom: 0px;
     opacity: 0.9;
-    z-index: 9998;
+    z-index: 9999;
 }
